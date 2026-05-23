@@ -185,15 +185,16 @@
     justify-content: space-between;
   }
   .photo-placeholder {
-    width: 150px;
-    height: 150px;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
-    margin: 0 auto 20px;
-    border: 2px solid #2a2520;
+    margin: 0 auto 32px;
+    border: 2px solid var(--ink);
     opacity: 0;
     animation: fadeUp 0.7s 0.5s forwards;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
   }
   .skills-label {
     font-size: 10px;
@@ -267,7 +268,7 @@
   .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px; /* Professional spacing between items */
+    gap: 32px;
     background: transparent;
   }
 
@@ -355,6 +356,20 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .proj-link:hover { border-color: var(--ink); color: var(--accent); }
+
+  /* Evaluation Layout */
+  .evaluation-section { background: var(--ink); color: var(--bg); padding: 96px 56px; }
+  .eval-container { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 64px; align-items: start; }
+  .eval-metric-box { border-left: 2px solid var(--accent); padding-left: 24px; }
+  .eval-big-num { font-family: var(--serif); font-size: 84px; font-weight: 700; line-height: 1; color: var(--white); margin-bottom: 8px; }
+  .eval-big-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #7a7268; margin-bottom: 24px; }
+  .eval-badge { display: inline-block; padding: 6px 14px; font-size: 11px; font-weight: 500; background: rgba(255,255,255,0.05); border: 1px solid #2a2520; color: var(--bg); letter-spacing: 1px; text-transform: uppercase; }
+  .feedback-stack { display: flex; flex-direction: column; gap: 40px; }
+  .feedback-item { border-bottom: 1px solid #1e1b18; padding-bottom: 40px; }
+  .feedback-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .feedback-quote { font-family: var(--serif); font-size: 18px; line-height: 1.6; color: var(--white); font-style: italic; margin-bottom: 16px; }
+  .feedback-meta { display: flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+  .feedback-source { color: #6b6560; font-weight: 400; }
 
   /* How I work */
   .process-section { background: var(--white); }
@@ -513,9 +528,11 @@
     nav { padding: 20px 24px; }
     .hero { grid-template-columns: 1fr; }
     .hero-left, .hero-right { padding: 100px 24px 56px; }
+    .hero-right .photo-placeholder { width: 180px; height: 180px; }
     section { padding: 64px 24px; }
     .projects-section { padding: 0 24px 64px; }
     .projects-grid { grid-template-columns: 1fr; gap: 24px; }
+    .eval-container { grid-template-columns: 1fr; gap: 40px; }
     .process-steps { grid-template-columns: 1fr 1fr; }
     .process-step:nth-child(2) { border-right: none; }
     .about-section { grid-template-columns: 1fr; }
@@ -534,6 +551,7 @@
   <a href="#" class="nav-logo">AB</a>
   <ul class="nav-links">
     <li><a href="#projects">Work</a></li>
+    <li><a href="#evaluation">Evaluation</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -643,10 +661,55 @@
   </div>
 </section>
 
+<!-- EVALUATION & PERFORMANCE INSIGHTS SECTION -->
+<section class="evaluation-section" id="evaluation">
+  <div class="section-header reveal" style="border-color: #2a2520;">
+    <div class="sec-num" style="color: #2a2520;">02</div>
+    <div class="sec-title" style="color: var(--bg);">Performance Insights</div>
+  </div>
+  
+  <div class="eval-container reveal">
+    <div class="eval-metric-box">
+      <div class="eval-big-num">95%</div>
+      <div class="eval-big-label">Overall Evaluation Rating</div>
+      <div class="eval-badge">Excelerate Internship 2026</div>
+    </div>
+    
+    <div class="feedback-stack">
+      <!-- FEEDBACK 1: QUALITY OF WORK -->
+      <div class="feedback-item">
+        <p class="feedback-quote">"You consistently produced flawless work with impeccable attention to detail. You demonstrated an exceptional level of accuracy and precision in all tasks."</p>
+        <div class="feedback-meta">
+          <span>★★★★★ Excellent Performance</span>
+          <span class="feedback-source">— Quality of Work Evaluation</span>
+        </div>
+      </div>
+      
+      <!-- FEEDBACK 2: OWNERSHIP -->
+      <div class="feedback-item">
+        <p class="feedback-quote">"You always take full ownership of your tasks and lead effectively. You manage your responsibilities excellently and support your teammates, making you a reliable and influential leader."</p>
+        <div class="feedback-meta">
+          <span>★★★★★ Excellent Performance</span>
+          <span class="feedback-source">— Ownership &amp; Leadership</span>
+        </div>
+      </div>
+
+      <!-- FEEDBACK 3: INNOVATION -->
+      <div class="feedback-item">
+        <p class="feedback-quote">"Great job in consistently being smart and showing innovative thinking in your work! Your ability to think innovatively and solve problems sets a great example for others."</p>
+        <div class="feedback-meta">
+          <span>★★★★★ Excellent Performance</span>
+          <span class="feedback-source">— Problem Solving &amp; Insight</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- HOW I WORK -->
 <section class="process-section" id="process">
   <div class="section-header reveal">
-    <div class="sec-num">02</div>
+    <div class="sec-num">03</div>
     <div class="sec-title">How I Work</div>
   </div>
   <div class="process-steps reveal">
@@ -682,7 +745,7 @@
 <div class="about-section" id="about">
   <div class="about-left">
     <div class="section-header reveal" style="border-color:#c5bcae">
-      <div class="sec-num" style="color:#c5bcae">03</div>
+      <div class="sec-num" style="color:#c5bcae">04</div>
       <div class="sec-title">About</div>
     </div>
     <p class="about-body reveal">I'm Boluwatife, a data analyst based in Lagos, Nigeria. I hold a degree in Industrial Mathematics from the Federal University of Technology, Akure (FUTA).</p>
